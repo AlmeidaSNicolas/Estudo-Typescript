@@ -16,7 +16,6 @@ class Person implements IPerson {
         this.age = age;
     }
 
-
     sayMyName(): string {
         return this.name
     }
@@ -30,4 +29,5 @@ class Enploy extends Person {
     }
 
 }
+
 

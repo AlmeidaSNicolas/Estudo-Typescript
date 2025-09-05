@@ -12,7 +12,6 @@ class Person {
     }
 }
 const N = new Person(1, "Nicolas", 22);
-
 class Enploy extends Person {
     constructor(id, name, age) {
         super(id, name, age);
