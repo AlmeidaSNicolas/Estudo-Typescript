@@ -18,4 +18,33 @@ function pegarIdade(array) {
 }
 const idadePegarstring = pegarIdade(["Doze Anos"]);
 const idadePegarnumber = pegarIdade([12]);
+
+//Classes
+class GenericNumber {
+    zeroValue;
+    sum;
+    constructor(zeroValue, sum) {
+        this.zeroValue = zeroValue;
+        this.sum = sum;
+    }
+}
+const myGenericNumber = new GenericNumber(0, (x, y) => {
+    return x + y;
+});
+
+
+class armario {
+    armarioNumber;
+    sum;
+    constructor(armarioNumber, sum) {
+        this.armarioNumber = armarioNumber;
+        this.sum = sum;
+    }
+}
+const myArmarioName = new armario(0, (x, y) => {
+    return x + y;
+    
+});
 export {};
+
+console.log(myArmarioName);

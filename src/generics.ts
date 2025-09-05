@@ -29,3 +29,33 @@ function pegarIdade<pegar>(array: pegar[]){
 const idadePegarstring = pegarIdade<string>(["Doze Anos"]);
 
 const idadePegarnumber = pegarIdade<number>([12]);
+
+//Classes
+class GenericNumber<A> {
+    zeroValue: A;
+    sum: (x: A, y:A) => A;
+
+    constructor(zeroValue: A, sum: (x: A, y: A) => A ){
+        this.zeroValue = zeroValue
+        this.sum =sum
+    }
+}
+const myGenericNumber= new GenericNumber<number>(0, (x: number, y: number) => {
+    return x + y;
+})
+
+
+class armario<G> {
+    armarioNumber: G;
+    sum: (x: G, y:G) => G;
+
+    constructor(armarioNumber: G, sum: (x: G, y: G) => G){
+        this.armarioNumber = armarioNumber
+        this.sum = sum
+    }
+}
+ const myArmarioName = new armario<number>(0, (x: number, y:number) => {
+        return x + y;
+    })
+
+    
