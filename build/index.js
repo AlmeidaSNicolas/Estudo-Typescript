@@ -34,5 +34,3 @@ let itemtId = productName; //dizendo pro TS que o productName é uma string
 let itemId = productName; //dizendo pro TS que o productName é uma string
 console.log(Direction);
 export {};
-
-
