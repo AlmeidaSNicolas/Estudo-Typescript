@@ -9,6 +9,8 @@ type User = {
     email: string;
     password: string | undefined; //opcional
     orders: Order[];
+    register(): string;
+    apresentar(): string;
 };
 
 const user: User = {
@@ -17,7 +19,13 @@ const user: User = {
     email: "n@gmail.com",
     password: undefined,
     orders: [{ productId: "1", price : 300} ],
+    register(){
+        return "Usuário " + user.firstName + " cadastrado com sucesso "
+    },
 
+    apresentar(){
+    return "Me chamo " + user.firstName + " tenho " + user.Age + " e meu email é " + user.email
+    }
 }
 
 user.password
@@ -38,7 +46,13 @@ const author: Author & User = {
     email: "j@gmail.com",
     password: "1234",
     orders: [],
-    books: ["O senhor dos aneis"]
+    books: ["O senhor dos aneis"],
+    register(){
+        return "Usuário cadastrado com sucesso"
+    },
+    apresentar(){
+    return "Me chamo " + user.firstName + " tenho " + user.Age + " e meu email é " + user.email
+    }
 }
 
 //interface
@@ -52,4 +66,21 @@ const emailUser: UserIn = {
     firstName: "Nicolas",
     email: "t2@gmail.com"
 }
+
+interface AuthorInterface {
+    books: string[];
+}
+
+const newAuthor: UserIn & AuthorInterface = {
+    firstName: "Nicolas",
+    email: "t3@gmail.com",
+    books: [],
+};
+
+type Grade = number | string;
+const grade: number | string = 1
+
+console.log(user.apresentar());
+
+
 

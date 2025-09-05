@@ -23,4 +23,8 @@ function apresentar(euSou: {nome: string, idade: number}, euTrabalho: {empresa: 
     return `Olá, meu nome é ${euSou.nome}, tenho ${euSou.idade} anos, trabalho na empresa ${euTrabalho.empresa} como ${euTrabalho.cargo}`
 }
 
-apresentar(euSou, euTrabalho)
+interface MathFunc {
+    (x:number, y: number): number;
+}
+
+const sub: MathFunc = (x: number, y: number): number => x - y;
