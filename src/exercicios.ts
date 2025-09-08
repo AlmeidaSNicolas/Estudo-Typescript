@@ -55,7 +55,40 @@ console.log(apresentarUsuario(nicolas));
 // a) Crie uma função que receba um parâmetro que pode ser "string" ou "number"
 // b) Se for número, retorne o dobro
 // c) Se for string, retorne em maiúsculas
+const teste = (valor: string | number): string | number => {
+    if (typeof valor === "number"){
+        return valor * 2;
+    }else {
+        {
+            return valor.toUpperCase();
+        }
+    }
+}
 
 
+// a) Crie uma classe "Pessoa" com propriedades: nome (string) e idade (number)
+// b) Adicione um método "apresentar" que retorne:
+//    "Olá, meu nome é <nome> e eu tenho <idade> anos."
+// c) Crie um objeto dessa classe e chame o método
+class Pessoa {
+    nome: string;
+    idade: number;  //codigo corrigdo pelo gepeto(gpt)
 
+    constructor(nome: string, idade: number) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    apresentar(): string {
+        return `Olá, meu nome é ${this.nome} e eu tenho ${this.idade} anos.`;
+    }
+}
+
+const noova = new Pessoa("Nicolas", 19);
+
+console.log(noova.apresentar());
+
+// a) Crie um enum "Cores" com: VERMELHO, VERDE e AZUL
+// b) Crie uma função que receba uma cor do enum e retorne uma frase:
+//    "Você escolheu a cor <cor>"
 
