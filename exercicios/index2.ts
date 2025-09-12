@@ -52,11 +52,10 @@ ola(nome);
 //idade (number)
 //ativo (boolean)
 //Depois, crie uma variável usuario usando esse tipo e atribua valores.
-
 class Pessoa{
-    nome:string
-    age:number
-    ativo:boolean
+    nome:string //strin =texto 
+    age:number // number= numero
+    ativo:boolean //true | false
 
     constructor(nome:string, age:number, ativo:boolean){
         this.nome = nome
@@ -134,7 +133,7 @@ enum pedidos{
     Cancelado
 }
 
-let parametro: pedidos = pedidos.Pendente
+let parametro: pedidos = pedidos.Pago
 
 function status(parametro) {
     if (parametro === pedidos.Pendente){
@@ -149,5 +148,22 @@ function status(parametro) {
 status(parametro);
 
 
+enum tasks{
+    concluida,
+    andamento,
+    naorealizada,
+}
 
+let definicao: tasks = tasks.concluida
 
+function storys(definicao){
+    if (definicao === tasks.concluida){
+        console.log("Sua tarefa foi concluida")
+    }else if (definicao === tasks.andamento){
+        console.log("Sua tarefa ainda esta em andamento ")
+    }else if (definicao === tasks.naorealizada){
+        console.log("Voce ainda nao realizou sua tarefa")
+    }
+}
+
+storys(definicao)
