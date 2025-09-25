@@ -88,7 +88,6 @@ function removerUsuario(email:string, nivelAcesso: 'ADMIN' | 'USER'): void{
     }
 }
 
-
 //Testes
 
 cadastro({nome:"Joao", email:"teste1@gmail.com", senha:"123456", idade:25, nivelAcesso:"USER"});
