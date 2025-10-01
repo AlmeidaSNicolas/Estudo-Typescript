@@ -1,0 +1,58 @@
+//Exercício 1: Parâmetro de Função Flexível
+//Objetivo: Criar uma função que aceite tanto um valor de um enum predefinido quanto um number para representar um status customizado.
+//Tarefa:
+//Crie um enum numérico chamado CodigoStatus. Ele deve ter os membros Ok = 200, NaoEncontrado = 404 e ErroServidor = 500.
+//Crie um type alias (apelido de tipo) chamado CodigoHttp, que seja uma união de CodigoStatus e number.
+//Crie uma função responderRequisicao que recebe um parâmetro codigo do tipo CodigoHttp.
+//Dentro da função, imprima a mensagem "Resposta enviada com o código: [codigo]".
+//Chame a função três vezes: uma com CodigoStatus.Ok, uma com CodigoStatus.NaoEncontrado e uma com um número qualquer, como 301.
+var codigos;
+(function (codigos) {
+    codigos[codigos["ok"] = 200] = "ok";
+    codigos[codigos["NaoEncontrado"] = 404] = "NaoEncontrado";
+    codigos[codigos["ErroServidor"] = 500] = "ErroServidor";
+})(codigos || (codigos = {}));
+function responderRequisicao(codigo) {
+    console.log("Resposta enviada com o codigo: ".concat(codigo));
+}
+responderRequisicao(200);
+responderRequisicao(500);
+
+//Exercício 2: Modelando Tipos de Ação
+//Objetivo: Usar a combinação de enum e union type para modelar o estado de uma ação que pode ter um payload (dados associados) de tipos diferentes.
+//Tarefa:
+//Crie um enum de string chamado TipoAcao com os membros CARREGAR_PERFIL e DEFINIR_IDADE.
+//Crie duas interfaces:
+//AcaoCarregarPerfil: deve ter uma propriedade tipo com o valor literal TipoAcao.CARREGAR_PERFIL e uma propriedade payload do tipo { idUsuario: string }.
+//AcaoDefinirIdade: deve ter uma propriedade tipo com o valor literal TipoAcao.DEFINIR_IDADE e uma propriedade payload do tipo number.
+//Crie um type alias chamado Acao, que seja uma união de AcaoCarregarPerfil e AcaoDefinirIdade.
+//Crie uma função executarAcao que recebe um parâmetro acao do tipo Acao.
+//Dentro da função, use um if ou switch para verificar o acao.tipo.
+//Se for CARREGAR_PERFIL, imprima "Carregando perfil do usuário: [idUsuario]".
+//Se for DEFINIR_IDADE, imprima "Definindo idade para: [payload]".
+// Seu código aqui
+var TipoAcao;
+(function (TipoAcao) {
+    TipoAcao["CARREGAR_PERFIL"] = "CARREGAR_PERFIL";
+    TipoAcao["DEFINIR_IDADE"] = "DEFINIR_IDADE";
+})(TipoAcao || (TipoAcao = {}));
+function executarAcao(acao) {
+    switch (acao.tipo) {
+        case TipoAcao.CARREGAR_PERFIL:
+            console.log("Carregando perfil do usu\u00E1rio: ".concat(acao.payload.idUsuario));
+            break;
+        case TipoAcao.DEFINIR_IDADE:
+            console.log("Definindo idade para: ".concat(acao.payload));
+            break;
+    }
+}
+var acao1 = {
+    tipo: TipoAcao.CARREGAR_PERFIL,
+    payload: { idUsuario: "user-123-xyz" }
+};
+var acao2 = {
+    tipo: TipoAcao.DEFINIR_IDADE,
+    payload: 30
+};
+executarAcao(acao1);
+executarAcao(acao2);
