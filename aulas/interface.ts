@@ -7,7 +7,7 @@ interface UserWallet {
 
 interface User {
     name: string,
-    createdAt: Date;
+    createdAt?: Date;
     wallet?: UserWallet
 }
 
