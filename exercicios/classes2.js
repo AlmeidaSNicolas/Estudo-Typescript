@@ -223,3 +223,111 @@ mago.status();
 mago.atacar(guerreiro);
 guerreiro.status();
 mago.status();
+//Exercicios dia 29 
+//🧩 Exercício 1 — Chamando o construtor da classe pai
+//Crie uma classe Pessoa com:
+//um construtor que receba nome e idade;
+//um método apresentar() que exiba algo como "Olá, meu nome é João e tenho 25 anos.".
+//Depois, crie uma subclasse Aluno que:
+//receba também um curso no construtor;
+//chame o construtor da classe pai com super(nome, idade);
+//sobrescreva o método apresentar() para incluir o curso também.
+//Desafio extra: Crie um objeto da classe Aluno e chame apresentar().
+var Pessoa2 = /** @class */ (function () {
+    function Pessoa2(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Pessoa2.prototype.apresentar = function () {
+        console.log("Ola, meu nome \u00E9 ".concat(this.name, " e tenho ").concat(this.age, " anos."));
+    };
+    return Pessoa2;
+}());
+var Aluno2 = /** @class */ (function (_super) {
+    __extends(Aluno2, _super);
+    function Aluno2(name, age, curso) {
+        var _this = _super.call(this, name, age) || this;
+        _this.curso = curso;
+        return _this;
+    }
+    Aluno2.prototype.apresentar = function () {
+        console.log("Ola, meu nome \u00E9 ".concat(this.name, ", tenho ").concat(this.age, " anos e curso ").concat(this.curso, "."));
+    };
+    return Aluno2;
+}(Pessoa2));
+var aluno2 = new Aluno2("Nicolas", 19, "Engenharia de Software");
+aluno2.apresentar();
+//⚙️ Exercício 2 — Chamando métodos da classe pai
+//Crie uma classe Funcionario com:
+//propriedades nome e salario;
+//método mostrarInformacoes() que exibe nome e salário.
+//Crie uma subclasse Gerente que:
+//tenha um método mostrarInformacoes() que chame o método da classe pai (super.mostrarInformacoes());
+//e depois exiba também "Cargo: Gerente".
+//Desafio extra: Faça o mesmo com uma subclasse Desenvolvedor.
+var Funcionario2 = /** @class */ (function () {
+    function Funcionario2(nome, salario) {
+        this.nome = nome;
+        this.salario = salario.toFixed(2);
+    }
+    Funcionario2.prototype.mostrarInformacoes = function () {
+        console.log("Nome: ".concat(this.nome, ", Sal\u00E1rio: R$").concat(this.salario));
+    };
+    return Funcionario2;
+}());
+var gerente2 = /** @class */ (function (_super) {
+    __extends(gerente2, _super);
+    function gerente2() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    gerente2.prototype.mostrarInformacoes = function () {
+        (_super.prototype.mostrarInformacoes.call(this));
+        console.log("Cargo: Gerente");
+    };
+    return gerente2;
+}(Funcionario2));
+var dev = /** @class */ (function (_super) {
+    __extends(dev, _super);
+    function dev() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    dev.prototype.monstrarInformacoes = function () {
+        (_super.prototype.mostrarInformacoes.call(this));
+        console.log("Cargo: Desenvolvedor");
+    };
+    return dev;
+}(Funcionario2));
+var G1 = new gerente2("Julia", 5000);
+var d1 = new dev("Nicolas", 4000);
+G1.mostrarInformacoes();
+d1.monstrarInformacoes();
+// Crie uma classe Animal com:
+//um método falar() que exiba "O animal faz um som.".
+//Crie uma subclasse Cachorro que:
+//sobrescreva o método falar(), mas antes de imprimir "O cachorro late!", chame super.falar().
+//👉 Resultado esperado:
+//O animal faz um som.
+//O cachorro late!
+var Animal = /** @class */ (function () {
+    function Animal() {
+    }
+    Animal.prototype.falar = function () {
+        console.log("O animal faz um som.");
+    };
+    return Animal;
+}());
+var Cachorro = /** @class */ (function (_super) {
+    __extends(Cachorro, _super);
+    function Cachorro() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Cachorro.prototype.falar = function () {
+        (_super.prototype.falar.call(this));
+        console.log("O cachorro late!");
+    };
+    return Cachorro;
+}(Animal));
+var dg1 = new Cachorro();
+dg1.falar();
+var dg2 = new Animal();
+dg2.falar();
