@@ -56,3 +56,43 @@ function move(pet: Fish | Passaro){
         pet.voar();
     }
 }
+
+
+interface Chef {
+    cook(): void;
+    diploma: string;
+    certificate: string;
+}
+
+interface Teacher {
+    teach(): void;
+    diploma: string;
+}
+
+interface Driver {
+    drive(): void;
+    license: string;
+}
+
+type Professional = Chef | Teacher | Driver;
+
+function Chef(value: Professional ): value is Chef {
+    return (value as Chef).cook !== undefined
+}
+
+function execute(professional: Professional){
+    switch (true) {
+        case Chef(professional): {
+            professional.cook
+            break;
+        }
+        case 'teach'in professional: {
+            professional.diploma
+            break;
+        }
+        case 'drive' in professional: {
+            professional.drive
+            break;
+        }
+    }
+}
