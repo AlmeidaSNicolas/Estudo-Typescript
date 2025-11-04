@@ -58,7 +58,6 @@ function fazerLogin(email:string, senha:string): void {
 
 
 
-
 //🧩 Próximo Desafio (Tarefa 2)
 //Quero que você evolua esse sistema.
 //📈 Tarefa 2 — Sessões de Usuário
